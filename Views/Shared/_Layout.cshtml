@@ -1,50 +1,322 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aegis Corporate Category Bootstrap Responsive Web Template | Home :: W3layouts</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Medizin Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <title>@ViewData["Title"] - Primis_Technical_Solutions</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Primis_Technical_Solutions.styles.css" asp-append-version="true" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script>
+    <!-- //Meta tag Keywords -->
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="~/assets/css/bootstrap.css">
+	<!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="~/assets/css/style.css" />
+    <link rel="stylesheet" href="~/assets/css/slider.css" />
+    <!-- Style-CSS -->
+    <!-- font-awesome-icons -->
+	<link href="~/assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- //font-awesome-icons -->
+    <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900" rel="stylesheet">
+    <!-- //Fonts -->
 </head>
 <body>
+    <!-- header -->
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Primis_Technical_Solutions</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
+        <div class="container">
+            <div class="header d-lg-flex justify-content-between align-items-center">
+                <div class="header-section">
+                    <h1>
+                        <a class="navbar-brand logo editContent" href="index.html">
+                            <span class="fa fa-angellist"></span> Aegis
+                        </a>
+                    </h1>
                 </div>
+                <div class="nav_section">
+                    <nav>
+                        <label for="drop" class="toggle mt-lg-0 mt-1"><span class="fa fa-bars" aria-hidden="true"></span></label>
+                        <input type="checkbox" id="drop" />
+                        <ul class="menu">
+@*                             <li class="active"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Features</a></li>
+
+                            <li>
+                                <!-- First Tier Drop Down -->
+                                <label for="drop-2" class="toggle">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+                                <a href="#">About <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                                <input type="checkbox" id="drop-2" />
+                                <ul class="inner-dropdown">
+                                    <li><a asp-area="" asp-controller="Home" asp-action="About">Stats</a></li>
+                                    <li><a asp-area="" asp-controller="Home" asp-action="About">Team</a></li>
+                                    <li><a asp-area="" asp-controller="Home" asp-action="About">Reviews</a></li>
+                                </ul>
+                            </li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Skills</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Portfolio</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a></li> *@
+
+                            <li class="@((Context.Request.Path == "/" || Context.Request.Path == "/Home/Index") ? "active" : "")">
+                                <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="@((Context.Request.Path == "/Home/Features") ? "active" : "")">
+                                <a asp-area="" asp-controller="Home" asp-action="Index">Features</a>
+                            </li>
+
+                            <li class="dropdown @((Context.Request.Path.StartsWithSegments("/Home/About")) ? "active" : "")">
+                                <!-- First Tier Drop Down -->
+                                <label for="drop-2" class="toggle">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+                                <a href="#">About <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                                <input type="checkbox" id="drop-2" />
+                                <ul class="inner-dropdown">
+                                    <li><a asp-area="" asp-controller="Home" asp-action="About">Stats</a></li>
+                                    <li><a asp-area="" asp-controller="Home" asp-action="About">Team</a></li>
+                                    <li><a asp-area="" asp-controller="Home" asp-action="About">Reviews</a></li>
+                                </ul>
+                            </li>
+                            <li class="@((Context.Request.Path == "/Home/Skills") ? "active" : "")">
+                                <a asp-area="" asp-controller="Home" asp-action="Index">Skills</a>
+                            </li>
+
+                            <li class="@((Context.Request.Path == "/Home/Portfolio") ? "active" : "")">
+                                <a asp-area="" asp-controller="Home" asp-action="Index">Portfolio</a>
+                            </li>
+
+                            <li class="@((Context.Request.Path == "/Home/Contact") ? "active" : "")">
+                                <a asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
+                            </li>
+                            <!-- ... (the rest of your navigation items) ... -->
+
+
+                        </ul>
+                    </nav>
+                </div>
+
             </div>
-        </nav>
+        </div>
     </header>
+    <!-- //header -->
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Primis_Technical_Solutions - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="footer-content py-5">
+        <div class="container py-md-3">
+            <div class="footer-top text-center mb-5">
+                <h2>
+                    <a class="navbar-brand pt-3 mb-5" href="index.html">
+                        <span class="fa fa-angellist"></span> Aegis
+                    </a>
+                </h2>
+                <div class="contact-form mx-auto text-left">
+                    <form method="post" action="#">
+                        <div class="row subscribe-sec">
+                            <div class="col-md-9 con-gd">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email here..." name="email" required>
+
+                            </div>
+                            <div class="col-md-3 con-gd">
+                                <button type="submit" class="btn btn-default">Subscribe</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="row footer-top-inner-w3layouts">
+                <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+                    <div class="footer-lavi">
+                        <h3 class="mb-3 lavi_title">Links</h3>
+                        <hr>
+                        <ul class="list-info-lavi">
+                            <li>
+                                <a href="about.html">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    Our Mission
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    Latest Posts
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    Explore
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact.html">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    Find us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    Privacy Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+                    <div class="footer-lavi">
+                        <h3 class="mb-3 lavi_title">Navigation</h3>
+                        <hr>
+                        <ul class="list-info-lavi">
+                            <li>
+                                <a href="index.html">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="about.html">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="single.html">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    Single Page
+                                </a>
+                            </li>
+                            <li>
+                                <a href="about.html">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    Team
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact.html">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    Contact Us
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+                    <div class="footer-lavi">
+                        <h3 class="mb-3 lavi_title">Customer Care</h3>
+                        <hr>
+                        <ul class="list-info-lavi">
+                            <li>
+                                <a href="about.html">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    Our Mission
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    Latest Posts
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+
+                                    Explore
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact.html">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    Find us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    Privacy Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+                    <div class="footer-lavi">
+                        <h3 class="mb-3 lavi_title">Contact Us</h3>
+                        <hr>
+                        <div class="last-w3layouts-contact">
+                            <p>
+                                <a href="mailto:example@email.com">info@example.com</a>
+                            </p>
+                        </div>
+                        <div class="last-w3layouts-contact my-2">
+                            <p>+ 456 123 7890</p>
+                        </div>
+                        <div class="last-w3layouts-contact">
+                            <p>
+                                + 90 nsequursu dsdesdc,
+                                <br>xxx Honey Street 049436.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
+        <!-- //footer bottom -->
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- //footer -->
+    <div class="copy-right">
+        <div class="container">
+            <div class="row">
+                <p class="copy-right-grids text-md-left text-center my-sm-4 my-4 col-md-6">
+                    © 2019 Aegis. All Rights Reserved | Design by
+                    <a href="http://w3layouts.com/"> W3layouts </a>
+                </p>
+                <div class="w3layouts-footer text-md-right text-center mt-4 col-md-5">
+                    <ul class="list-unstyled w3layouts-icons">
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-facebook-f"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-twitter"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-dribbble"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-vk"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="move-top text-right col-md-1"><a href="#home" class="move-top"> <span class="fa fa-angle-up  mb-3" aria-hidden="true"></span></a></div>
+
+            </div>
+        </div>
+    </div>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
