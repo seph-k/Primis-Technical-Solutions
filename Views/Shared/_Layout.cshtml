@@ -21,14 +21,14 @@
     <!-- Custom-Files -->
     <link rel="stylesheet" href="~/assets/css/bootstrap.css">
 	<!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="~/assets/css/style.css" />
-    <link rel="stylesheet" href="~/assets/css/slider.css" />
+    <link rel="stylesheet" href="~/assets/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/assets/css/slider.css" type="text/css" media="all" />
     <!-- Style-CSS -->
     <!-- font-awesome-icons -->
 	<link href="~/assets/css/font-awesome.css" rel="stylesheet" />
     <!-- //font-awesome-icons -->
     <!-- /Fonts -->
-    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900" rel="stylesheet">
+@*     <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900" rel="stylesheet"> *@
     <!-- //Fonts -->
 </head>
 <body>
@@ -48,24 +48,6 @@
                         <label for="drop" class="toggle mt-lg-0 mt-1"><span class="fa fa-bars" aria-hidden="true"></span></label>
                         <input type="checkbox" id="drop" />
                         <ul class="menu">
-@*                             <li class="active"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Features</a></li>
-
-                            <li>
-                                <!-- First Tier Drop Down -->
-                                <label for="drop-2" class="toggle">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
-                                <a href="#">About <span class="fa fa-angle-down" aria-hidden="true"></span></a>
-                                <input type="checkbox" id="drop-2" />
-                                <ul class="inner-dropdown">
-                                    <li><a asp-area="" asp-controller="Home" asp-action="About">Stats</a></li>
-                                    <li><a asp-area="" asp-controller="Home" asp-action="About">Team</a></li>
-                                    <li><a asp-area="" asp-controller="Home" asp-action="About">Reviews</a></li>
-                                </ul>
-                            </li>
-                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Skills</a></li>
-                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Portfolio</a></li>
-                            <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a></li> *@
-
                             <li class="@((Context.Request.Path == "/" || Context.Request.Path == "/Home/Index") ? "active" : "")">
                                 <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
@@ -106,11 +88,9 @@
         </div>
     </header>
     <!-- //header -->
-
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    
+    <div>
+        @RenderBody()
     </div>
 
     <footer class="footer-content py-5">
