@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Primis_Technical_Solutions.Models.Introductory_Content>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<hr/>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Home_Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Home_Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.About_Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.About_Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact_Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact_Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Home_Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Home_Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.About_Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.About_Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact_Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact_Description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Introductory_ContentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Introductory_ContentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Introductory_ContentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,41 @@
+﻿@model Primis_Technical_Solutions.Models.Contact_Reason
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Contact_Reason</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Contact_ReasonId" />
+            <div class="form-group">
+                <label asp-for="Reason_For_Contact" class="control-label"></label>
+                <textarea id="summernote1" asp-for="Reason_For_Contact" class="form-control"> </textarea>
+                <span asp-validation-for="Reason_For_Contact" class="text-danger"></span>
+                <script>
+                    $('#summernote1').summernote({
+                        placeholder: 'Hello Bootstrap 4',
+                        tabsize: 2,
+                        height: 50
+                    });
+                </script>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

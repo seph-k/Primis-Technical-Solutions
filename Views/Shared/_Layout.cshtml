@@ -30,6 +30,11 @@
     <!-- /Fonts -->
 @*     <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900" rel="stylesheet"> *@
     <!-- //Fonts -->
+    <!-- Include Summernote CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+
+    <!-- Include Summernote JS -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 </head>
 <body>
     <!-- header -->
@@ -76,6 +81,28 @@
 
                             <li class="@((Context.Request.Path == "/Home/Contact") ? "active" : "")">
                                 <a asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
+                            </li>
+
+                            <li class="dropdown">
+                                <!-- First Tier Drop Down -->
+                                <label for="drop-2" class="toggle">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+                                <a href="#">Pages<span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                                <input type="checkbox" id="drop-2" />
+                                <ul class="inner-dropdown">
+                                    <li><a class="dropdown-item" href="/Introductory_Content">Introductory_Content</a></li>
+                                    <li><a class="dropdown-item" href="/Home_Banner">Home_Banner</a></li>
+                                    <li><a class="dropdown-item" href="/Contact_Reason">Contact_Reasons</a></li>
+                                    <li><a class="dropdown-item" href="/Partners_Section">Partners_Sections</a></li>
+                                    <li><a class="dropdown-item" href="/Our_Partner">Our_Partners</a></li>
+                                    <li><a class="dropdown-item" href="/Our_Team">Our_Teams</a></li>
+                                    <li><a class="dropdown-item" href="/Our_Industrie">Our_Industries</a></li>
+                                    <li><a class="dropdown-item" href="/Portfolios">Portfolios</a></li>
+                                    <li><a class="dropdown-item" href="/Our_Sector">Our_Sectors</a></li>
+                                    <li><a class="dropdown-item" href="/Team_Member">Team_Members</a></li>
+                                    <li><a class="dropdown-item" href="/Our_Feature">Our_Features</a></li>
+                                    <li><a class="dropdown-item" href="/Our_Skill">Our_Skills</a></li>
+                                    <li><a class="dropdown-item" href="/Our_Sevice">Our_Sevices</a></li>
+                                </ul>
                             </li>
                             <!-- ... (the rest of your navigation items) ... -->
 

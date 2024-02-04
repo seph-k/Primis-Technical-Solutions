@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Primis_Technical_Solutions.Models.Contact_Reason>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<hr />
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Reason_For_Contact)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reason_For_Contact)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Contact_ReasonId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Contact_ReasonId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Contact_ReasonId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

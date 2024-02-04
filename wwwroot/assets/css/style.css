@@ -179,7 +179,7 @@ a.navbar-brand.logo span {}
     display: inline-block;
     border: none;
     outline: none;
-    background: #0063dc;
+    background: #620709;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -o-border-radius: 50%;
@@ -288,7 +288,7 @@ nav a:hover {
 }
 
 .menu li.active a {
-    color: #0063dc;
+    color: #620709;
 }
 
 /* Hide Dropdowns by Default
@@ -313,7 +313,8 @@ nav ul li:hover > ul {
 
 /* Fisrt Tier Dropdown */
 nav ul ul li {
-    width: 160px;
+    /* width: 160px;*/
+    width: auto;
     float: none;
     display: list-item;
     position: relative;
@@ -492,6 +493,7 @@ li > a:only-child:after {
     ul.inner-dropdown {
         padding-bottom: 0 !important;
         padding-top: 8px !important;
+        width: auto;
     }
 }
 
@@ -595,7 +597,7 @@ h3.tittle {
 }
 
 .bottom-gd2-active {
-    background: #ff0084;
+    background: #B5C3F4;
     transition: 2s all;
     -webkit-transition: 2s all;
     -moz-transition: 2s all;
@@ -639,7 +641,7 @@ h3.tittle {
 }
 
 ul.tic-info li span {
-    color: #ff0084;
+    color: #620709;
 }
 
 ul.tic-info li {
@@ -716,7 +718,7 @@ p.counter {
 /*-- //stats --*/
 /*-- partners --*/
 .partners {
-    background: #efc001;
+    background: #B5C3F4;
 }
 
 .partner-w3pvt span {
@@ -957,7 +959,7 @@ hr {
     border-radius: 4px;
     padding: 15px 5px;
     border: 0px;
-    color: #4759d8;
+    color: #620709;
     font-size: 16px;
     letter-spacing: 1px;
     font-weight: 600;
@@ -1067,7 +1069,7 @@ h3.lavi_title {
 .subscribe-sec {
     padding: 60px 80px;
     border-radius: 4px;
-    background: #0063dc;
+    background: #620709;
     -moz-box-shadow: 10px 10px 30px rgba(68, 79, 173, 0.35);
     -webkit-box-shadow: 10px 10px 30px rgba(68, 79, 173, 0.35);
     box-shadow: 10px 10px 30px rgba(68, 79, 173, 0.35);
@@ -1075,7 +1077,7 @@ h3.lavi_title {
 
 ul.list-info-lavi span {
     margin-right: 0.5em;
-    color: #0062cc;
+    color: #620709;
 }
 
 .feature-grids.team span {

@@ -1,0 +1,43 @@
+﻿@model Primis_Technical_Solutions.Models.Contact_Reason
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Contact_Reason</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @* add method="post" enctype="multipart/form-data to the form tag to accept uploaded files *@
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Reason_For_Contact" class="control-label"></label>
+                @*  to use the SUMMERNOTE WYSIWYG editor, put it in the textarea tag with the id of the JS script *@
+                <textarea id="summernote1" asp-for="Reason_For_Contact" class="form-control"></textarea>
+                <span asp-validation-for="Reason_For_Contact" class="text-danger"></span>
+                @* the JS script of the SUMMERNOTE WYSIWYG editor *@
+                <script>
+                    $('#summernote1').summernote({
+                        placeholder: 'Hello Bootstrap 4',
+                        tabsize: 2,
+                        height: 50
+                    });
+                </script>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
