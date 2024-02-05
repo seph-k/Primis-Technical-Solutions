@@ -266,15 +266,15 @@ nav ul li {
 }
 
 /* Styling the links */
-nav a {
-    font-weight: 600;
-    text-transform: uppercase;
-    color: #fff;
-    letter-spacing: 1px;
-    font-size: 0.85em;
-    position: relative;
-    padding: 0.2rem;
-}
+    nav a {
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #fff;
+        letter-spacing: 1px;
+        font-size: 0.85em;
+        position: relative;
+        padding: 0.2rem;
+    }
 
 
 nav ul li ul li:hover {
