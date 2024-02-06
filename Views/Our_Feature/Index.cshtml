@@ -24,7 +24,10 @@
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.Short_Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Long_Description)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Image)
@@ -39,8 +42,11 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.Short_Description)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Long_Description)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Image)
             </td>

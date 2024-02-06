@@ -1,103 +1,36 @@
-﻿@{
+﻿@model Primis_Technical_Solutions.viewModel.ServiceViewModel
+@{
     ViewData["Title"] = "Service Page";
 }
-<!-- banner -->
-<section class="banner_w3pvt">
-    <div class="csslider infinity" id="slider1">
-        <input type="radio" name="slides" checked="checked" id="slides_1" />
-        <input type="radio" name="slides" id="slides_2" />
-        <input type="radio" name="slides" id="slides_3" />
+@foreach (var BL in Model.Banner_Logos)
+{
+    <!-- mian-content -->
+    <div class="main-w3layouts-header-sec inner-page" id="home" style=" background: url(@BL.Service_Banner) no-repeat top; background-size: cover; min-height: 20em;">
+        <div class="overlay-innerpage">
+            <!-- header -->
+            <!-- //header -->
+        </div>
+    </div>
+}
 
-        <ul>
-            <li>
-                <div class="banner-top">
-                    <div class="overlay">
-                        <div class="container">
-                            <div class="banner-info">
-                                <div class="banner-w3layouts-inner text-center">
-                                    <h4>Welcome to My Website</h4>
-                                    <h3>Strategy</h3>
-                                    <ul class="banner-w3layouts-top-icons text-center">
-                                        <li class="icons mx-auto">
-                                            Connect With Us :
-                                        </li>
-                                        <li class="icons mx-auto">
-                                            <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                                        </li>
+<section class="collections-gid-w3layouts">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 progress-content text-left p-lg-5 my-lg-5">
+                <div class="py-lg-3 px-lg-5 p-md-5 p-3">
+                    <h3 class="title-w3pvt mb-5">@Model.Title</h3>
 
-                                        <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
-                                        <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
+                    <p>
+                        @Model.Description
+                    </p>
 
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </li>
-            <li>
-                <div class="banner-top1">
-                    <div class="overlay">
-                        <div class="container">
-                            <div class="banner-info">
-                                <div class="banner-w3layouts-inner text-center">
-                                    <h4>Welcome to My Website</h4>
-                                    <h3>Guidance</h3>
-                                    <ul class="banner-w3layouts-top-icons text-center">
-                                        <li class="icons mx-auto">
-                                            Connect With Us :
-                                        </li>
-                                        <li class="icons mx-auto">
-                                            <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                                        </li>
 
-                                        <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
-                                        <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="banner-top2">
-                    <div class="overlay">
-                        <div class="container">
-                            <div class="banner-info">
-                                <div class="banner-w3layouts-inner text-center">
-                                    <h4>Welcome to My Website</h4>
-                                    <h3>Progress</h3>
-
-                                    <ul class="banner-w3layouts-top-icons text-center">
-                                        <li class="icons mx-auto">
-                                            Connect With Us :
-                                        </li>
-                                        <li class="icons mx-auto">
-                                            <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                                        </li>
-
-                                        <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
-                                        <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
-
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-        </ul>
-        <div class="arrows">
-            <label for="slides_1"></label>
-            <label for="slides_2"></label>
-            <label for="slides_3"></label>
+            </div>
+            <div class="col-lg-6 progress-content-img two px-lg-0">
+                <img src="@Model.Image" alt="" class="img-fluid image1">
+            </div>
 
         </div>
     </div>
 </section>
-<!-- //banner -->

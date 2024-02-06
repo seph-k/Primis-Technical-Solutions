@@ -91,8 +91,8 @@ a.navbar-brand.logo span {}
 }
 
 .banner-top {
-    background: url(../images/banner1.jpg) no-repeat center;
-    background-size: cover;
+   /* background: url(../images/banner1.jpg) no-repeat center;*/
+    /*background-size: cover;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -100,8 +100,8 @@ a.navbar-brand.logo span {}
 }
 
 .banner-top1 {
-    background: url(../images/banner2.jpg) no-repeat center;
-    background-size: cover;
+/*    background: url(../images/banner2.jpg) no-repeat center;
+    background-size: cover;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -109,8 +109,8 @@ a.navbar-brand.logo span {}
 }
 
 .banner-top2 {
-    background: url(../images/banner3.jpg) no-repeat 0px 0px;
-    background-size: cover;
+/*    background: url(../images/banner3.jpg) no-repeat 0px 0px;
+    background-size: cover;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -526,7 +526,7 @@ li.icons a {
     border-radius: 50%;
     line-height: 33px;
     padding: 0;
-    background: transporant;
+    background: transparent;
     color: #fff;
 }
 
@@ -798,8 +798,8 @@ p.counter {
 /* //gallery page */
 
 .main-w3layouts-header-sec.inner-page {
-    background: url(../images/banner2.jpg) no-repeat top;
-    background-size: cover;
+/*    background: url(../images/banner2.jpg) no-repeat top;
+    background-size: cover;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -848,7 +848,7 @@ p.counter {
 }
 
 .btn.submit {
-    background: #ff0084;
+    background: rgb(98,7,9);
     -moz-transition: all 0.25s ease;
     -o-transition: all 0.25s ease;
     -webkit-transition: all 0.25s ease;

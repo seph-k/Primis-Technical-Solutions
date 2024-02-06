@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Primis_Technical_Solutions.viewModel.HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -10,7 +11,36 @@
         <input type="radio" name="slides" id="slides_3" />
 
         <ul>
-            <li>
+            @foreach (var HB in Model.Home_Banners)
+            {
+                <li>
+                    <div class="banner-top" style="background: url(@HB.Image) no-repeat center; background-size: cover;">
+                        <div class="overlay">
+                            <div class="container">
+                                <div class="banner-info">
+                                    <div class="banner-w3layouts-inner text-center">
+                                        <h4>@HB.Description</h4>
+                                        <h3>@HB.Title</h3>
+                                        <ul class="banner-w3layouts-top-icons text-center">
+                                            <li class="icons mx-auto">
+                                                Connect With Us :
+                                            </li>
+                                            <li class="icons mx-auto">
+                                                <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+                                            </li>
+                                            <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
+                                            <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+
+            }
+@*             <li>
                 <div class="banner-top">
                     <div class="overlay">
                         <div class="container">
@@ -90,7 +120,7 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> *@
 
         </ul>
         <div class="arrows">
@@ -108,13 +138,18 @@
 <section class="content-info py-5" id="about">
     <div class="container py-md-5">
         <div class="text-center px-lg-5">
-            <div class="title-desc text-center px-lg-5">
-                <p class="px-lg-5 sub-wthree">At Primis Technical Solutions we offer comprehensive project management consultation and implementation services 
-                    for cloud computing and digital transformation goals and provide network services.We follow a holistic approach, 
-                    addressing strategic aspects of cloud adoption, migration, security consulting, cloud infrastructure management and networking services.
-                </p>
-                <a class="btn mt-lg-4 mt-3 read" href="single.html" role="button"><span class="fa fa-play" aria-hidden="true"></span></a>
-            </div>
+            @foreach (var IC in Model.Introductory_Contents)
+            {
+                <div class="title-desc text-center px-lg-5">
+                    <p class="px-lg-5 sub-wthree">@IC.Home_Description
+                        @* At Primis Technical Solutions we offer comprehensive project management consultation and implementation services
+                        for cloud computing and digital transformation goals and provide network services.We follow a holistic approach,
+                        addressing strategic aspects of cloud adoption, migration, security consulting, cloud infrastructure management and networking services. *@
+                    </p>
+                    <a class="btn mt-lg-4 mt-3 read" href="single.html" role="button"><span class="fa fa-play" aria-hidden="true"></span></a>
+                </div>
+
+            }
         </div>
     </div>
 </section>
@@ -123,30 +158,18 @@
 <section class="about py-md-5 py-5" id="about">
     <div class="container py-md-5">
         <div class="feature-grids row mt-3">
-            <div class="col-lg-4 gd-bottom mt-4">
-                <div class="bottom-gd p-lg-5 p-4">
-                    <span class="fa fa-pencil-square-o" aria-hidden="true"></span>
-                    <h3 class="my-3">Project Management Consultation</h3>
-                    <p>Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
+            @foreach (var SV in Model.Our_Sevices)
+            {
+                <div class="col-lg-4 gd-bottom mt-4">
+                    <div class="bottom-gd p-lg-5 p-4">
+                        <img src="@SV.Image" alt="@SV.Title" class="service-icon" style="height: 80px;">
+                        <h3 class="my-3">@SV.Title</h3>
+                        <p>@SV.Description</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4 gd-bottom mt-4">
-                <div class="bottom-gd2-active p-lg-5 p-4">
-                    <span class="fa fa-podcast" aria-hidden="true"></span>
-                    <h3 class="my-3">Implementation Services</h3>
-                    <p>Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 gd-bottom mt-4">
-                <div class="bottom-gd p-lg-5 p-4">
-                    <span class="fa fa-flask" aria-hidden="true"></span>
-                    <h3 class="my-3">Network Services</h3>
-                    <p>Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
-                </div>
-            </div>
+            }
 
         </div>
-
     </div>
 </section>
 <!-- //about -->
@@ -154,7 +177,24 @@
 <section class="collections-gid-w3layouts" id="skills">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-6 progress-content-img px-lg-0">
+            @foreach (var SK in Model.Our_Skills)
+            {
+                <div class="col-lg-6 progress-content-img px-lg-0">
+                    <img src="@SK.Image" alt="" class="img-fluid image1">
+                </div>
+                <div class="col-lg-6 progress-content text-left p-lg-5 my-lg-5">
+                    <div class="py-lg-3 px-lg-5 p-md-5 p-3">
+                        <h3 class="title-w3pvt mb-5">@SK.Title</h3>
+
+                        <p>
+                            @SK.Description
+                        </p>
+                    </div>
+                </div>
+
+            }
+
+@*             <div class="col-lg-6 progress-content-img px-lg-0">
                 <img src="images/img1.jpg" alt="" class="img-fluid image1">
             </div>
             <div class="col-lg-6 progress-content text-left p-lg-5 my-lg-5">
@@ -198,7 +238,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> *@
         </div>
     </div>
 </section>
@@ -207,8 +247,25 @@
 <section class="collections-gid-w3layouts">
     <div class="container-fluid">
         <div class="row">
+            @foreach (var SC in Model.Our_Sectors)
+            {
+                <div class="col-lg-6 progress-content text-left p-lg-5 my-lg-5">
+                    <div class="py-lg-3 px-lg-5 p-md-5 p-3">
+                        <h3 class="title-w3pvt mb-5">@Html.Raw(SC.Title)</h3>
 
-            <div class="col-lg-6 progress-content text-left p-lg-5 my-lg-5">
+                        <p>
+                            @Html.Raw(SC.Description)
+                        </p>
+                        
+                    </div>
+
+                </div>
+                <div class="col-lg-6 progress-content-img two px-lg-0">
+                    <img src="@SC.Image" alt="" class="img-fluid image1">
+                </div>
+
+            }
+@*             <div class="col-lg-6 progress-content text-left p-lg-5 my-lg-5">
                 <div class="py-lg-3 px-lg-5 p-md-5 p-3">
                     <h3 class="title-w3pvt mb-5">Our Sectors</h3>
 
@@ -254,7 +311,7 @@
             </div>
             <div class="col-lg-6 progress-content-img two px-lg-0">
                 <img src="images/img2.jpg" alt="" class="img-fluid image1">
-            </div>
+            </div> *@
         </div>
     </div>
 </section>
@@ -263,214 +320,306 @@
 <section class="about py-md-5 py-5" id="services">
     <div class="container py-md-5">
         <h3 class="title-w3pvt text-center mb-5">Our Features</h3>
-        <div class="feature-grids row mt-5">
-            <div class="col-lg-4 gd-bottom process-1 text-lg-center text-center  p-lg-5">
-                <h3 class="my-3">Project Management and Execution</h3>
-                <p>Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
-            </div>
+        <div id="featureCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @{
+                    var features = Model.Our_Features.ToList();
+                    int totalSlides = (int)Math.Ceiling((double)features.Count / 3);
 
-            <div class="col-lg-4 gd-bottom process-1 text-lg-center text-center  p-lg-5">
-                <h3 class="my-3">Cloud Strategy Development</h3>
-                <p>Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
-            </div>
+                    for (int slideIndex = 0; slideIndex < totalSlides; slideIndex++)
+                    {
+                        bool isActive = slideIndex == 0;
+                        <div class="carousel-item @(isActive ? "active" : "")">
+                            <div class="feature-grids row mt-5">
+                                @for (int cardIndex = slideIndex * 3; cardIndex < (slideIndex + 1) * 3 && cardIndex < features.Count; cardIndex++)
+                                {
+                                    var feature = features[cardIndex];
+                                    <div class="col-md-4 gd-bottom text-center p-lg-5">
+                                        <div class="card">
+                                            <img src="@feature.Image" class="card-img-top" alt="Feature Image">
+                                            <div class="card-body">
+                                                <h3 class="card-title">@feature.Title</h3>
+                                                <p class="card-text">@feature.Short_Description</p>
+                                                 <a href="@Url.Action("Services", "Home", new { image = feature.Image, title = feature.Title, description = feature.Long_Description })" class="btn btn-primary">Learn More</a>
 
-            <div class="col-lg-4 gd-bottom process-1 text-lg-center text-center  p-lg-5">
-                <h3 class="my-3">Infrastructure Assessment and Migration Planning</h3>
-                <p>Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                }
+                @* <a asp-area="" asp-controller="Home" asp-action="Services" class="btn btn-primary">Learn More</a> *@
+@*                 <a href="@Url.Action("Services", "Home", new { image = feature.Image, title = feature.Title, description = feature.Long_Description })" class="btn btn-primary">Learn More</a>
+ *@
             </div>
-
-            <div class="col-lg-4 gd-bottom process-1 text-lg-center text-center  p-lg-5">
-                <h3 class="my-3">Security and Compliance Integration</h3>
-                <p>Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
-            </div>
-
-            <div class="col-lg-4 gd-bottom process-1 text-lg-center text-center  p-lg-5">
-                <h3 class="my-3">Continuous Monitoring and Optimisation</h3>
-                <p>Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
-            </div>
-
-            <div class="col-lg-4 gd-bottom process-1 text-lg-center text-center  p-lg-5">
-                <h3 class="my-3">Network Design Services</h3>
-                <p>Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
-            </div>
-
-            <div class="col-lg-4 gd-bottom">
-            </div>
-            <div class="col-lg-4 gd-bottom text-center p-lg-5">
-                <h3 class="my-3">Network Support Services</h3>
-                <p>Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
-            </div>
-            <div class="col-lg-4">
-            </div>
-
+            <a class="carousel-control-prev" href="#featureCarousel" role="button" data-slide="prev" style="left:-110px">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#featureCarousel" role="button" data-slide="next" style="right:-110px">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-
-
     </div>
 </section>
+
+@* <section class="about py-md-5 py-5" id="services">
+    <div class="container py-md-5">
+        <h3 class="title-w3pvt text-center mb-5">Our Features</h3>
+        <div id="featureCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+
+                <!-- First Slide -->
+                <div class="carousel-item active">
+                    <div class="feature-grids row mt-5">
+                        <!-- Feature 1 -->
+                        <div class="col-md-4 gd-bottom text-center p-lg-5">
+                            <div class="card">
+                                <img src="~/assets/images/g1.jpg" class="card-img-top" alt="Project Management Image">
+                                <div class="card-body">
+                                    <h3 class="card-title">Project Management and Execution</h3>
+                                    <p class="card-text">Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
+                                    <a asp-area="" asp-controller="Home" asp-action="Services" class="btn btn-primary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                @foreach (var FT in Model.Our_Features)
+                {
+                    <!-- First Slide -->
+                    <div class="carousel-item">
+                        <div class="feature-grids row mt-5">
+                            <!-- Feature  -->
+                            <div class="col-md-4 gd-bottom text-center p-lg-5">
+                                <div class="card">
+                                    <img src="@FT.Image" class="card-img-top" alt="Project Management Image">
+                                    <div class="card-body">
+                                        <h3 class="card-title">@FT.Title</h3>
+                                        <p class="card-text">@FT.Description</p>
+                                        <a asp-area="" asp-controller="Home" asp-action="Services" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                }
+
+
+
+@*                     <!-- First Slide -->
+                    <div class="carousel-item active">
+                        <div class="feature-grids row mt-5">
+                            <!-- Feature 1 -->
+                            <div class="col-md-4 gd-bottom text-center p-lg-5">
+                                <div class="card">
+                                    <img src="~/assets/images/g1.jpg" class="card-img-top" alt="Project Management Image">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Project Management and Execution</h3>
+                                        <p class="card-text">Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
+                                    <a asp-area="" asp-controller="Home" asp-action="Services" class="btn btn-primary">Learn More</a>
+                                </div>
+                                </div>
+                            </div>
+
+                            <!-- Feature 2 -->
+                            <div class="col-md-4 gd-bottom text-center p-lg-5">
+                                <div class="card">
+                                    <img src="~/assets/images/g2.jpg" class="card-img-top" alt="Cloud Strategy Development Image">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Cloud Strategy Development</h3>
+                                        <p class="card-text">Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
+                                    <a asp-area="" asp-controller="Home" asp-action="Services" class="btn btn-primary">Learn More</a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Feature 3 -->
+                            <div class="col-md-4 gd-bottom text-center p-lg-5">
+                                <div class="card">
+                                    <img src="~/assets/images/g3.jpg" class="card-img-top" alt="Infrastructure Assessment and Migration Planning Image">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Infrastructure Assessment and Migration Planning</h3>
+                                        <p class="card-text">Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
+                                    <a asp-area="" asp-controller="Home" asp-action="Services" class="btn btn-primary">Learn More</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Second Slide -->
+                    <div class="carousel-item">
+                        <div class="feature-grids row mt-5">
+                            <!-- Feature 4 -->
+                            <div class="col-md-4 gd-bottom text-center p-lg-5">
+                                <div class="card">
+                                    <img src="~/assets/images/g4.jpg" class="card-img-top" alt="Security and Compliance Integration Image">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Security and Compliance Integration</h3>
+                                        <p class="card-text">Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
+                                    <a asp-area="" asp-controller="Home" asp-action="Services" class="btn btn-primary">Learn More</a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Feature 5 -->
+                            <div class="col-md-4 gd-bottom text-center p-lg-5">
+                                <div class="card">
+                                    <img src="~/assets/images/g5.jpg" class="card-img-top" alt="Continuous Monitoring and Optimisation Image">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Continuous Monitoring and Optimisation</h3>
+                                        <p class="card-text">Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
+                                    <a asp-area="" asp-controller="Home" asp-action="Services" class="btn btn-primary">Learn More</a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Feature 6 -->
+                            <div class="col-md-4 gd-bottom text-center p-lg-5">
+                                <div class="card">
+                                    <img src="~/assets/images/g6.jpg" class="card-img-top" alt="Network Design Services Image">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Network Design Services</h3>
+                                        <p class="card-text">Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
+                                    <a asp-area="" asp-controller="Home" asp-action="Services" class="btn btn-primary">Learn More</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Third Slide -->
+                    <div class="carousel-item">
+                        <div class="feature-grids row mt-5">
+                            <!-- Feature 7 -->
+                            <div class="col-md-4 gd-bottom text-center p-lg-5">
+                                <div class="card">
+                                    <img src="~/assets/images/g6.jpg" class="card-img-top" alt="Network Support Services Image">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Network Support Services</h3>
+                                        <p class="card-text">Integer sit amet mattis quam, sit amet ultricies velit. Praesent ullamcorper dui turpis.</p>
+                                    <a asp-area="" asp-controller="Home" asp-action="Services" class="btn btn-primary">Learn More</a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>  
+
+            </div>
+            <a class="carousel-control-prev" href="#featureCarousel" role="button" data-slide="prev" style="left:-110px">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#featureCarousel" role="button" data-slide="next" style="right:-110px">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</section> *@
 <!-- //features -->
 <!--/gallery -->
-<section class="gallery py-5" id="gallery">
-    <div class="container py-md-5">
-
-        <h3 class="title-w3pvt text-center mb-5">Our Portfolio</h3>
-        <div class="gallery-content">
-            <div class="row">
-                <div class="col-md-4 col-sm-6 gal-img">
-                    <a href="#gal1"><img src="images/g1.jpg" alt="aegis" class="img-fluid mt-4"></a>
+@if (Model.Portfolios.Any())
+{
+    <section class="gallery py-5" id="gallery">
+        <div class="container py-md-5">
+            <h3 class="title-w3pvt text-center mb-5">Our Portfolio</h3>
+            <div class="gallery-content">
+                <div class="row">
+                    @{
+                        int counter = 1;
+                    }
+                    @foreach (var PF in Model.Portfolios)
+                    {
+                        <div class="col-md-4 col-sm-6 gal-img">
+                            <a href="#gal@counter"><img src="@PF.Portfolio_Image" alt="aegis" class="img-fluid mt-4"></a>
+                        </div>
+                        counter++;
+                    }
                 </div>
-                <div class="col-md-4 col-sm-6 gal-img">
-                    <a href="#gal2"><img src="images/g2.jpg" alt="aegis" class="img-fluid mt-4"></a>
-                </div>
-                <div class="col-md-4 col-sm-6 gal-img">
-                    <a href="#gal3"><img src="images/g3.jpg" alt="aegis" class="img-fluid mt-4"></a>
-                </div>
-                <div class="col-md-4 col-sm-6 gal-img">
-                    <a href="#gal4"><img src="images/g4.jpg" alt="aegis" class="img-fluid mt-4"></a>
-                </div>
-                <div class="col-md-4 col-sm-6 gal-img">
-                    <a href="#gal5"><img src="images/g5.jpg" alt="aegis" class="img-fluid mt-4"></a>
-                </div>
-                <div class="col-md-4 col-sm-6 gal-img">
-                    <a href="#gal6"><img src="images/g6.jpg" alt="aegis" class="img-fluid mt-4"></a>
-                </div>
-
+                <!-- gallery popups -->
+                @{
+                    int cntr = 1;
+                }
+                @foreach (var PF in Model.Portfolios)
+                {
+                    <div id="gal@cntr" class="popup-effect">
+                        <div class="popup">
+                            <img src="@PF.Portfolio_Image" alt="Popup image" class="img-fluid mt-4" />
+                            <a class="close" href="#gallery">&times;</a>
+                        </div>
+                    </div>
+                    cntr++;
+                }
             </div>
-            <!-- gallery popups -->
-            <!-- popup-->
-            <div id="gal1" class="popup-effect">
-                <div class="popup">
-                    <img src="images/g1.jpg" alt="Popup image" class="img-fluid mt-4" />
-                    <a class="close" href="#gallery">&times;</a>
-                </div>
-            </div>
-            <!-- //popup -->
-            <!-- popup-->
-            <div id="gal2" class="popup-effect">
-                <div class="popup">
-                    <img src="images/g2.jpg" alt="Popup image" class="img-fluid mt-4" />
-                    <a class="close" href="#gallery">&times;</a>
-                </div>
-            </div>
-            <!-- //popup -->
-            <!-- popup-->
-            <div id="gal3" class="popup-effect">
-                <div class="popup">
-                    <img src="images/g3.jpg" alt="Popup image" class="img-fluid mt-4" />
-                    <a class="close" href="#gallery">&times;</a>
-                </div>
-            </div>
-            <!-- //popup -->
-            <!-- popup-->
-            <div id="gal4" class="popup-effect">
-                <div class="popup">
-                    <img src="images/g4.jpg" alt="Popup image" class="img-fluid mt-4" />
-                    <a class="close" href="#gallery">&times;</a>
-                </div>
-            </div>
-            <!-- //popup -->
-            <!-- popup-->
-            <div id="gal5" class="popup-effect">
-                <div class="popup">
-                    <img src="images/g5.jpg" alt="Popup image" class="img-fluid mt-4" />
-                    <a class="close" href="#gallery">&times;</a>
-                </div>
-            </div>
-            <!-- //popup -->
-            <!-- popup-->
-            <div id="gal6" class="popup-effect">
-                <div class="popup">
-                    <img src="images/g6.jpg" alt="Popup image" class="img-fluid mt-4" />
-                    <a class="close" href="#gallery">&times;</a>
-                </div>
-            </div>
-            <!-- //popup -->
-            <!-- //gallery popups -->
-
         </div>
-    </div>
-
-
-</section>
+    </section>
+}
 <!-- //gallery-->
-<!-- partners -->
+<!-- Industries Carousel -->
 <section class="partners py-5" id="partners">
     <div class="container py-md-3">
         <h3 class="title-w3pvt two text-center mb-5">Industries</h3>
-        <div class="row grid-part text-center">
-            <div class="col-md-2 col-4 mt-3">
-                <div class="partner-w3pvt">
-                    <a href="#"><span class="fa fa-angellist"></span></a>
-                    <h4>Healthcare</h4>
-                </div>
+
+
+        <div id="industriesCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @{
+                    var industries = Model.Our_Industries.ToList();
+                    int total = (int)Math.Ceiling((double)industries.Count / 6);
+
+                    for (int slideIndex = 0; slideIndex < total; slideIndex++)
+                    {
+                        bool isActive = slideIndex == 0;
+                        <div class="carousel-item @(isActive ? "active" : "")">
+                            <div class="row grid-part text-center">
+                                @for (int itemIndex = slideIndex * 6; itemIndex < (slideIndex + 1) * 6 && itemIndex < industries.Count; itemIndex++)
+                                {
+                                    var industry = industries[itemIndex];
+                                    <div class="col-md-2 col-4 mt-3">
+                                        <div class="partner-w3pvt">
+                                            <a href="#">
+                                                <img src="@industry.Indutry_Icon" alt="@industry.Industry_Title" class="industry-icon" style="height: 75px;">
+                                            </a>
+
+                                            <h4>@industry.Industry_Title</h4>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                }
             </div>
-            <div class="col-md-2 col-4 mt-3">
-                <div class="partner-w3pvt">
-                    <a href="#"><span class="fa fa-opencart"></span></a>
-                    <h4>Hospitality</h4>
-                </div>
-            </div>
-            <div class="col-md-2 col-4 mt-3">
-                <div class="partner-w3pvt">
-                    <a href="#"><span class="fa fa-lastfm"></span></a>
-                    <h4>Prisons</h4>
-                </div>
-            </div>
-            <div class="col-md-2 col-4 mt-3">
-                <div class="partner-w3pvt">
-                    <a href="#"><span class="fa fa-openid"></span></a>
-                    <h4>Local Authorities</h4>
-                </div>
-            </div>
-            <div class="col-md-2 col-4 mt-3">
-                <div class="partner-w3pvt">
-                    <a href="#"><span class="fa fa-skyatlas"></span></a>
-                    <h4>Police force</h4>
-                </div>
-            </div>
-            <div class="col-md-2 col-4 mt-3">
-                <div class="partner-w3pvt">
-                    <a href="#"><span class="fa fa-ravelry"></span></a>
-                    <h4>Telecommunication</h4>
-                </div>
-            </div>
-            <div class="col-md-2 col-4 mt-3">
-                <div class="partner-w3pvt">
-                    <a href="#"><span class="fa fa-angellist"></span></a>
-                    <h4>Legal sector</h4>
-                </div>
-            </div>
-            <div class="col-md-2 col-4 mt-3">
-                <div class="partner-w3pvt">
-                    <a href="#"><span class="fa fa-opencart"></span></a>
-                    <h4>Air Transportation</h4>
-                </div>
-            </div>
-            <div class="col-md-2 col-4 mt-3">
-                <div class="partner-w3pvt">
-                    <a href="#"><span class="fa fa-lastfm"></span></a>
-                    <h4>Logistics</h4>
-                </div>
-            </div>
-            <div class="col-md-2 col-4 mt-3">
-                <div class="partner-w3pvt">
-                    <a href="#"><span class="fa fa-openid"></span></a>
-                    <h4>Manufacturing</h4>
-                </div>
-            </div>
-            <div class="col-md-2 col-4 mt-3">
-                <div class="partner-w3pvt">
-                    <a href="#"><span class="fa fa-skyatlas"></span></a>
-                    <h4>Energy</h4>
-                </div>
-            </div>
-            <div class="col-md-2 col-4 mt-3">
-                <div class="partner-w3pvt">
-                    <a href="#"><span class="fa fa-ravelry"></span></a>
-                    <h4>Education</h4>
-                </div>
-            </div>
+
+            <!-- Carousel Navigation Arrows -->
+            <a class="carousel-control-prev" href="#industriesCarousel" role="button" data-slide="prev" style="left:-116px">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#industriesCarousel" role="button" data-slide="next" style="right:-116px">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
 </section>
-<!-- //partners -->
+<!-- //Industries Carousel -->
+
+

@@ -4,28 +4,50 @@
     ViewData["Title"] = "Edit";
 }
 
+<!-- mian-content -->
+<div class="main-w3layouts-header-sec inner-page" id="home">
+    <div class="overlay-innerpage">
+        <!-- header -->
+        <!-- //header -->
+    </div>
+</div>
+
 <h1>Edit</h1>
 
 <h4>Team_Member</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Team_MemberId" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <textarea id="summernote1" asp-for="Name" class="form-control"> </textarea>
                 <span asp-validation-for="Name" class="text-danger"></span>
+                <script>
+                    $('#summernote1').summernote({
+                        placeholder: 'Hello Bootstrap 4',
+                        tabsize: 2,
+                        height: 50
+                    });
+                </script>
             </div>
             <div class="form-group">
                 <label asp-for="Position" class="control-label"></label>
-                <input asp-for="Position" class="form-control" />
+                <textarea id="summernote2" asp-for="Position" class="form-control"> </textarea>
                 <span asp-validation-for="Position" class="text-danger"></span>
+                <script>
+                    $('#summernote2').summernote({
+                        placeholder: 'Hello Bootstrap 4',
+                        tabsize: 2,
+                        height: 50
+                    });
+                </script>
             </div>
             <div class="form-group">
                 <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="form-control" />
+                <input type="file" asp-for="Image" class="form-control" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -40,5 +62,8 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+

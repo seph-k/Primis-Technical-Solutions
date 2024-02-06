@@ -59,7 +59,7 @@ namespace Primis_Technical_Solutions.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Our_FeatureId,Title,Description,Image")] Our_Feature our_Feature, IFormFile Image)
+        public async Task<IActionResult> Create([Bind("Our_FeatureId,Title,Short_Description, Long_Description,Image")] Our_Feature our_Feature, IFormFile Image)
         {
             if (ModelState.IsValid)
             {
@@ -114,7 +114,7 @@ namespace Primis_Technical_Solutions.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Our_FeatureId,Title,Description,Image")] Our_Feature our_Feature, IFormFile Image)
+        public async Task<IActionResult> Edit(int id, [Bind("Our_FeatureId,Title,Short_Description, Long_Description,Image")] Our_Feature our_Feature, IFormFile Image)
         {
             if (id != our_Feature.Our_FeatureId)
             {

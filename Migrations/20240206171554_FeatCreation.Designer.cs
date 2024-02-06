@@ -9,11 +9,11 @@ using Primis_Technical_Solutions.Data;
 
 #nullable disable
 
-namespace Primis_Technical_Solutions.Data.Migrations
+namespace Primis_Technical_Solutions.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240202105850_initialCreation")]
-    partial class initialCreation
+    [Migration("20240206171554_FeatCreation")]
+    partial class FeatCreation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -227,6 +227,74 @@ namespace Primis_Technical_Solutions.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Primis_Technical_Solutions.Models.Banner_Logo", b =>
+                {
+                    b.Property<int>("Banner_LogoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Banner_LogoId"));
+
+                    b.Property<string>("About_Banner")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Bottom_Logo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Contact_Banner")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Service_Banner")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Table_Banner")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Top_Logo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Banner_LogoId");
+
+                    b.ToTable("Banner_Logos");
+                });
+
+            modelBuilder.Entity("Primis_Technical_Solutions.Models.Banners_Logo", b =>
+                {
+                    b.Property<int>("Banners_LogoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Banners_LogoId"));
+
+                    b.Property<string>("About_Banner")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Bottom_Logo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Contact_Banner")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Service_Banner")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Table_Banner")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Top_Logo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Banners_LogoId");
+
+                    b.ToTable("Banners_Logos");
+                });
+
             modelBuilder.Entity("Primis_Technical_Solutions.Models.Contact_Reason", b =>
                 {
                     b.Property<int>("Contact_ReasonId")
@@ -313,11 +381,15 @@ namespace Primis_Technical_Solutions.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Our_FeatureId"));
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Long_Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
+                    b.Property<string>("Short_Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")

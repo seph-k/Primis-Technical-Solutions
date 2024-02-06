@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Primis_Technical_Solutions.Models.Banner_Logo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!-- mian-content -->
+<div class="main-w3layouts-header-sec inner-page" id="home">
+    <div class="overlay-innerpage">
+        <!-- header -->
+        <!-- //header -->
+    </div>
+</div>
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Top_Logo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bottom_Logo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.About_Banner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact_Banner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service_Banner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Table_Banner)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Top_Logo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bottom_Logo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.About_Banner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact_Banner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service_Banner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Table_Banner)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Banner_LogoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Banner_LogoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Banner_LogoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

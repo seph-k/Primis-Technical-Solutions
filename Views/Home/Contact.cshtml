@@ -1,27 +1,36 @@
-﻿@{
+﻿@model Primis_Technical_Solutions.viewModel.ContactViewModel
+@{
     ViewData["Title"] = "Contact Page";
 }
 
-<!-- mian-content -->
-<div class="main-w3layouts-header-sec inner-page" id="home">
-    <div class="overlay-innerpage">
-        <!-- header -->
-        <!-- //header -->
+@foreach (var BL in Model.Banner_Logos)
+{
+    <!-- mian-content -->
+    <div class="main-w3layouts-header-sec inner-page" id="home" style=" background: url(@BL.Contact_Banner) no-repeat top; background-size: cover; min-height: 20em;">
+        <div class="overlay-innerpage">
+            <!-- header -->
+            <!-- //header -->
+        </div>
     </div>
-</div>
+}
 
 <!-- //banner -->
 <!-- //banner-botttom -->
 <section class="content-info py-5">
     <div class="container py-md-5">
         <div class="text-center px-lg-5">
-            <h3 class="title-w3pvt mb-5">Contact Us</h3>
-            <div class="title-desc text-center px-lg-5">
-                <p class="px-lg-5 sub-wthree">
-                    The team at Primis Technical Solution Ltd is carefully selected to ensure they are highly experienced specialists in their respective disciplines.
-                    They understand your business imperatives and platforms.
-                </p>
-            </div>
+            @foreach (var IC in Model.Introductory_Contents)
+            {
+                <h3 class="title-w3pvt mb-5">@* Contact Us *@ @IC.Contact_Title</h3>
+                <div class="title-desc text-center px-lg-5">
+                    <p class="px-lg-5 sub-wthree">
+                        @IC.Contact_Description
+                        @* The team at Primis Technical Solution Ltd is carefully selected to ensure they are highly experienced specialists in their respective disciplines.
+                        They understand your business imperatives and platforms. *@
+                    </p>
+                </div>
+
+            }
         </div>
         <div class="contact-w3pvt-form mt-5">
             <form action="#" class="w3layouts-contact-fm" method="post">
@@ -39,6 +48,16 @@
                             <label>Email</label>
                             <input class="form-control" type="email" name="Email" placeholder="" required="">
                         </div>
+                        <div class="form-group">
+                            <label>Reason for contacting us</label>
+                            <select class="form-control" name="Reason">
+                                @foreach (var CR in Model.Contact_Reasons)
+                                {
+                                    <option value="@CR.Reason_For_Contact">@CR.Reason_For_Contact</option>
+                                }
+                                <!-- Add more options as needed -->
+                            </select>
+                        </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -53,6 +72,9 @@
 
             </form>
         </div>
+
+
+
     </div>
 </section>
 <!-- //banner-botttom -->
