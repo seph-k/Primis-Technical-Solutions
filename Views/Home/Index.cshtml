@@ -4,7 +4,7 @@
 }
 
 <!-- banner -->
-<section class="banner_w3pvt">
+@* <section class="banner_w3pvt">
     <div class="csslider infinity" id="slider1">
         <input type="radio" name="slides" checked="checked" id="slides_1" />
         <input type="radio" name="slides" id="slides_2" />
@@ -40,88 +40,6 @@
 
 
             }
-@*             <li>
-                <div class="banner-top">
-                    <div class="overlay">
-                        <div class="container">
-                            <div class="banner-info">
-                                <div class="banner-w3layouts-inner text-center">
-                                    <h4>Welcome to My Website</h4>
-                                    <h3>Strategy</h3>
-                                    <ul class="banner-w3layouts-top-icons text-center">
-                                        <li class="icons mx-auto">
-                                            Connect With Us :
-                                        </li>
-                                        <li class="icons mx-auto">
-                                            <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                                        </li>
-
-                                        <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
-                                        <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
-
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="banner-top1">
-                    <div class="overlay">
-                        <div class="container">
-                            <div class="banner-info">
-                                <div class="banner-w3layouts-inner text-center">
-                                    <h4>Welcome to My Website</h4>
-                                    <h3>Guidance</h3>
-                                    <ul class="banner-w3layouts-top-icons text-center">
-                                        <li class="icons mx-auto">
-                                            Connect With Us :
-                                        </li>
-                                        <li class="icons mx-auto">
-                                            <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                                        </li>
-
-                                        <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
-                                        <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="banner-top2">
-                    <div class="overlay">
-                        <div class="container">
-                            <div class="banner-info">
-                                <div class="banner-w3layouts-inner text-center">
-                                    <h4>Welcome to My Website</h4>
-                                    <h3>Progress</h3>
-
-                                    <ul class="banner-w3layouts-top-icons text-center">
-                                        <li class="icons mx-auto">
-                                            Connect With Us :
-                                        </li>
-                                        <li class="icons mx-auto">
-                                            <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                                        </li>
-
-                                        <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
-                                        <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
-
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li> *@
-
         </ul>
         <div class="arrows">
             <label for="slides_1"></label>
@@ -130,10 +48,57 @@
 
         </div>
     </div>
+</section> *@
+<section class="banner_w3pvt">
+    <div class="csslider infinity" id="slider1">
+        @if (Model.Home_Banners.Count() > 1)
+        {
+            <input type="radio" name="slides" checked="checked" id="slides_1" />
+            <input type="radio" name="slides" id="slides_2" />
+            <input type="radio" name="slides" id="slides_3" />
+        }
+        <ul>
+            @foreach (var HB in Model.Home_Banners)
+            {
+                <li>
+                    <div class="banner-top" style="background: url(@HB.Image) no-repeat center; background-size: cover;">
+                        <div class="overlay">
+                            <div class="container">
+                                <div class="banner-info">
+                                    <div class="banner-w3layouts-inner text-center">
+                                        <h4>@HB.Description</h4>
+                                        <h3>@HB.Title</h3>
+                                        <ul class="banner-w3layouts-top-icons text-center">
+                                            <li class="icons mx-auto">
+                                                Connect With Us :
+                                            </li>
+                                            <li class="icons mx-auto">
+                                                <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+                                            </li>
+                                            <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
+                                            <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+        @if (Model.Home_Banners.Count() > 1)
+        {
+            <div class="arrows">
+                @for (int i = 1; i <= Model.Home_Banners.Count(); i++)
+                {
+                    <label for="slides_@i"></label>
+                }
+            </div>
+        }
+    </div>
 </section>
-<!-- //slider -->
-
 <!-- //banner -->
+
 <!-- //banner-botttom -->
 <section class="content-info py-5" id="about">
     <div class="container py-md-5">
@@ -156,13 +121,13 @@
 <!-- //banner-botttom -->
 <!-- /about -->
 <section class="about py-md-5 py-5" id="about">
-    <div class="container py-md-5">
+@*     <div class="container py-md-5">
         <div class="feature-grids row mt-3">
             @foreach (var SV in Model.Our_Sevices)
             {
                 <div class="col-lg-4 gd-bottom mt-4">
                     <div class="bottom-gd p-lg-5 p-4">
-                        <img src="@SV.Image" alt="@SV.Title" class="service-icon" style="height: 80px;">
+                        <img src="@SV.Image" alt="@SV.Title" class="service-icon" style="height: 200px;">
                         <h3 class="my-3">@SV.Title</h3>
                         <p>@SV.Description</p>
                     </div>
@@ -170,7 +135,23 @@
             }
 
         </div>
+    </div> *@
+    <div class="container py-md-5">
+        <div class="feature-grids row mt-3">
+            @foreach (var SV in Model.Our_Sevices)
+            {
+                <div class="col-lg-4 gd-bottom mt-4">
+                    <div class="bottom-gd p-lg-5 p-4">
+                        <img src="@SV.Image" alt="@SV.Title" class="service-icon mx-auto d-block" style="max-height: 212px; margin-left: -2rem !important;">
+                        <h3 class="my-3">@SV.Title</h3>
+                        <p>@SV.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
     </div>
+
+
 </section>
 <!-- //about -->
 <!--/banner-bottom -->
@@ -334,9 +315,9 @@
                                 @for (int cardIndex = slideIndex * 3; cardIndex < (slideIndex + 1) * 3 && cardIndex < features.Count; cardIndex++)
                                 {
                                     var feature = features[cardIndex];
-                                    <div class="col-md-4 gd-bottom text-center p-lg-5">
+                                    <div class="col-md-4 gd-bottom text-center p-lg-5" style="padding: 1rem !important;">
                                         <div class="card">
-                                            <img src="@feature.Image" class="card-img-top" alt="Feature Image">
+                                            <img src="@feature.Image" class="card-img-top" alt="Feature Image" style="max-height: 200px;">
                                             <div class="card-body">
                                                 <h3 class="card-title">@feature.Title</h3>
                                                 <p class="card-text">@feature.Short_Description</p>
@@ -572,6 +553,8 @@
     </section>
 }
 <!-- //gallery-->
+
+
 <!-- Industries Carousel -->
 <section class="partners py-5" id="partners">
     <div class="container py-md-3">
@@ -593,9 +576,9 @@
                                 {
                                     var industry = industries[itemIndex];
                                     <div class="col-md-2 col-4 mt-3">
-                                        <div class="partner-w3pvt">
+                                        <div class="partner-w3pvt" style="padding: 1rem;">
                                             <a href="#">
-                                                <img src="@industry.Indutry_Icon" alt="@industry.Industry_Title" class="industry-icon" style="height: 75px;">
+                                                <img src="@industry.Indutry_Icon" alt="@industry.Industry_Title" class="industry-icon" style="height: 125px;">
                                             </a>
 
                                             <h4>@industry.Industry_Title</h4>
@@ -619,6 +602,20 @@
             </a>
         </div>
     </div>
+
+ @*    <form method="post" action="#">
+        <div class="row subscribe-sec">
+            <div class="col-md-9 con-gd">
+                <input type="email" class="form-control" id="email" placeholder="Your Email here..." name="email" required>
+
+            </div>
+            <div class="col-md-3 con-gd">
+                <button type="submit" class="btn btn-default">Subscribe</button>
+            </div>
+
+        </div>
+    </form> *@
+    
 </section>
 <!-- //Industries Carousel -->
 
