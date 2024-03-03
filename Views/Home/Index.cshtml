@@ -66,9 +66,9 @@
                             <div class="container">
                                 <div class="banner-info">
                                     <div class="banner-w3layouts-inner text-center">
-                                        <h4>@HB.Description</h4>
-                                        <h3>@HB.Title</h3>
-                                        <ul class="banner-w3layouts-top-icons text-center">
+                                        @Html.Raw(HB.Description)
+                                        @Html.Raw(HB.Title)
+                                        @* <ul class="banner-w3layouts-top-icons text-center">
                                             <li class="icons mx-auto">
                                                 Connect With Us :
                                             </li>
@@ -77,7 +77,7 @@
                                             </li>
                                             <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
                                             <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
-                                        </ul>
+                                        </ul> *@
                                     </div>
                                 </div>
                             </div>
@@ -560,27 +560,25 @@
     <div class="container py-md-3">
         <h3 class="title-w3pvt two text-center mb-5">Industries</h3>
 
-
         <div id="industriesCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 @{
                     var industries = Model.Our_Industries.ToList();
-                    int total = (int)Math.Ceiling((double)industries.Count / 6);
+                    int total = (int)Math.Ceiling((double)industries.Count / 2);
 
                     for (int slideIndex = 0; slideIndex < total; slideIndex++)
                     {
                         bool isActive = slideIndex == 0;
                         <div class="carousel-item @(isActive ? "active" : "")">
                             <div class="row grid-part text-center">
-                                @for (int itemIndex = slideIndex * 6; itemIndex < (slideIndex + 1) * 6 && itemIndex < industries.Count; itemIndex++)
+                                @for (int itemIndex = slideIndex * 2; itemIndex < (slideIndex + 1) * 2 && itemIndex < industries.Count; itemIndex++)
                                 {
                                     var industry = industries[itemIndex];
-                                    <div class="col-md-2 col-4 mt-3">
+                                    <div class="col-md-6 mt-3">
                                         <div class="partner-w3pvt" style="padding: 1rem;">
                                             <a href="#">
-                                                <img src="@industry.Indutry_Icon" alt="@industry.Industry_Title" class="industry-icon" style="height: 125px;">
+                                                <img src="@industry.Indutry_Icon" alt="@industry.Industry_Title" class="industry-icon" style="height: 200px; width: auto; max-width: 100%;">
                                             </a>
-
                                             <h4>@industry.Industry_Title</h4>
                                         </div>
                                     </div>
@@ -602,21 +600,8 @@
             </a>
         </div>
     </div>
-
- @*    <form method="post" action="#">
-        <div class="row subscribe-sec">
-            <div class="col-md-9 con-gd">
-                <input type="email" class="form-control" id="email" placeholder="Your Email here..." name="email" required>
-
-            </div>
-            <div class="col-md-3 con-gd">
-                <button type="submit" class="btn btn-default">Subscribe</button>
-            </div>
-
-        </div>
-    </form> *@
-    
 </section>
+
 <!-- //Industries Carousel -->
 
 

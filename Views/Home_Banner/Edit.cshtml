@@ -41,7 +41,21 @@
                     $('#summernote2').summernote({
                         placeholder: 'Hello Bootstrap 4',
                         tabsize: 2,
-                        height: 50
+                        height: 50,
+                        toolbar: [
+                            ['style', ['bold', 'italic', 'underline', 'clear']],
+                            ['styleTags', ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']],
+                            ['font', ['strikethrough', 'superscript', 'subscript', 'fontname']],
+                            ['fontsize', ['fontsize']],
+                            // ['fontsizes', ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '26', '28', '36', '48', '72']],
+                            ['color', ['color']],
+                            ['para', ['ul', 'ol', 'paragraph']],
+                            ['height', ['height']],
+                            ['insert', ['link', 'picture', 'video', 'table', 'hr']],
+                            ['view', ['fullscreen', 'codeview']],
+                            ['help', ['help']],
+
+                        ]
                     });
                 </script>
             </div>
@@ -56,6 +70,7 @@
         </form>
     </div>
 </div>
+
 
 <div>
     <a asp-action="Index">Back to List</a>
