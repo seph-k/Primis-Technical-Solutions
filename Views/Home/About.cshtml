@@ -14,8 +14,6 @@
     </div>
 }
 
-
-
 <!-- //banner -->
 <!-- //banner-botttom -->
 <section class="content-info py-5" id="about">
@@ -45,8 +43,9 @@
             @foreach (var SV in Model.Our_Sevices)
             {
                 <div class="col-lg-4 gd-bottom mt-4">
-                    <div class="bottom-gd p-lg-5 p-4">
-                        <img src="@SV.Image" alt="@SV.Title" class="service-icon mx-auto d-block" style="max-height: 212px; margin-left: -2rem !important;">
+                    <div class="bottom-gd p-lg-5 p-4 text-center">
+                        <!-- Set the max-height for the image -->
+                        <img src="@SV.Image" alt="@SV.Title" class="service-icon mx-auto d-block" style="max-height: 212px; width: 100%; height: 100%;">
                         <h3 class="my-3">@SV.Title</h3>
                         <p>@SV.Description</p>
                     </div>
@@ -152,9 +151,9 @@
                                 @for (int cardIndex = slideIndex * 3; cardIndex < (slideIndex + 1) * 3 && cardIndex < features.Count; cardIndex++)
                                 {
                                     var feature = features[cardIndex];
-                                    <div class="col-md-4 gd-bottom text-center p-lg-5" style="padding: 1rem !important;">
+                                    <div class="col-md-4 text-center" style="padding: 1rem;">
                                         <div class="card">
-                                            <img src="@feature.Image" class="card-img-top" alt="Feature Image">
+                                            <img src="@feature.Image" class="card-img-top img-fluid" alt="Feature Image">
                                             <div class="card-body">
                                                 <h3 class="card-title">@feature.Title</h3>
                                                 <p class="card-text">@feature.Short_Description</p>
@@ -168,11 +167,11 @@
                     }
                 }
             </div>
-            <a class="carousel-control-prev" href="#featureCarousel" role="button" data-slide="prev" style="left:-110px">
+            <a class="carousel-control-prev" href="#featureCarousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#featureCarousel" role="button" data-slide="next" style="right:-110px">
+            <a class="carousel-control-next" href="#featureCarousel" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>

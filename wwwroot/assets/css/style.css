@@ -90,6 +90,17 @@ a.navbar-brand.logo span {}
     z-index: 1;
 }
 
+
+.banner-w3layouts-inner h2 {
+    font-size: 3rem; /* Adjust the font size as needed */
+    margin-bottom: 0.5rem;
+}
+
+.banner-w3layouts-inner p {
+    font-size: 1.2rem; /* Adjust the font size as needed */
+    margin-bottom: 0; /* Set bottom margin to zero */
+}
+
 .banner-top {
    /* background: url(../images/banner1.jpg) no-repeat center;*/
     /*background-size: cover;*/
@@ -121,6 +132,22 @@ a.navbar-brand.logo span {}
     padding-top: 19em;
 }
 
+    .banner-info p {
+        font-size: 2vw;
+    }
+
+    .banner-info h2 {
+        font-size: 3vw;
+    }
+
+/* CSS for responsive content */
+.responsive-content {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+
 .banner-w3layouts-inner {
     text-align: center;
     /* background: #fff; */
@@ -128,6 +155,22 @@ a.navbar-brand.logo span {}
     /* width: 50%; */
     margin: 0 auto;
 }
+
+
+/* Media query for small devices */
+@media screen and (max-width: 768px) {
+    .banner-w3layouts-inner {
+        padding: 10%; /* Increase padding for smaller devices */
+    }
+}
+
+/* Media query for extra small devices */
+@media screen and (max-width: 576px) {
+    .banner-w3layouts-inner {
+        padding: 15%; /* Increase padding further for extra small devices */
+    }
+}
+
 
 .banner-info h3 {
     text-shadow: 3px 1px 3px rgba(45, 45, 45, 0.38);
@@ -834,6 +877,15 @@ p.counter {
     width: 80%;
 }
 
+.service-icon {
+    max-width: 100%;
+    height: auto;
+}
+@media (max-width: 768px) {
+    .service-icon {
+        margin-left: 0; /* Reset the left margin */
+    }
+}
 .form-group input {
     outline: none;
     padding: 16px 20px;
@@ -1176,7 +1228,7 @@ a.move-top span {
     }
 
     .gd-bottom img {
-        width: 50%;
+        width: 100%;
         margin-top: 2em;
     }
 }

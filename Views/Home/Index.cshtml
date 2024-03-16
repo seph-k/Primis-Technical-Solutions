@@ -3,52 +3,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-<!-- banner -->
-@* <section class="banner_w3pvt">
-    <div class="csslider infinity" id="slider1">
-        <input type="radio" name="slides" checked="checked" id="slides_1" />
-        <input type="radio" name="slides" id="slides_2" />
-        <input type="radio" name="slides" id="slides_3" />
-
-        <ul>
-            @foreach (var HB in Model.Home_Banners)
-            {
-                <li>
-                    <div class="banner-top" style="background: url(@HB.Image) no-repeat center; background-size: cover;">
-                        <div class="overlay">
-                            <div class="container">
-                                <div class="banner-info">
-                                    <div class="banner-w3layouts-inner text-center">
-                                        <h4>@HB.Description</h4>
-                                        <h3>@HB.Title</h3>
-                                        <ul class="banner-w3layouts-top-icons text-center">
-                                            <li class="icons mx-auto">
-                                                Connect With Us :
-                                            </li>
-                                            <li class="icons mx-auto">
-                                                <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                                            </li>
-                                            <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
-                                            <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-
-            }
-        </ul>
-        <div class="arrows">
-            <label for="slides_1"></label>
-            <label for="slides_2"></label>
-            <label for="slides_3"></label>
-
-        </div>
-    </div>
-</section> *@
 <section class="banner_w3pvt">
     <div class="csslider infinity" id="slider1">
         @if (Model.Home_Banners.Count() > 1)
@@ -66,18 +20,8 @@
                             <div class="container">
                                 <div class="banner-info">
                                     <div class="banner-w3layouts-inner text-center">
-                                        @Html.Raw(HB.Description)
-                                        @Html.Raw(HB.Title)
-                                        @* <ul class="banner-w3layouts-top-icons text-center">
-                                            <li class="icons mx-auto">
-                                                Connect With Us :
-                                            </li>
-                                            <li class="icons mx-auto">
-                                                <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                                            </li>
-                                            <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
-                                            <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
-                                        </ul> *@
+                                        <p style="font-size: 2vw;">@Html.Raw(HB.Description)</p>
+                                        <h2 style="font-size: 3vw;">@Html.Raw(HB.Title)</h2>
                                     </div>
                                 </div>
                             </div>
@@ -86,6 +30,8 @@
                 </li>
             }
         </ul>
+
+
         @if (Model.Home_Banners.Count() > 1)
         {
             <div class="arrows">
@@ -97,6 +43,7 @@
         }
     </div>
 </section>
+
 <!-- //banner -->
 
 <!-- //banner-botttom -->
@@ -107,9 +54,6 @@
             {
                 <div class="title-desc text-center px-lg-5">
                     <p class="px-lg-5 sub-wthree">@IC.Home_Description
-                        @* At Primis Technical Solutions we offer comprehensive project management consultation and implementation services
-                        for cloud computing and digital transformation goals and provide network services.We follow a holistic approach,
-                        addressing strategic aspects of cloud adoption, migration, security consulting, cloud infrastructure management and networking services. *@
                     </p>
                     <a class="btn mt-lg-4 mt-3 read" href="single.html" role="button"><span class="fa fa-play" aria-hidden="true"></span></a>
                 </div>
@@ -120,22 +64,7 @@
 </section>
 <!-- //banner-botttom -->
 <!-- /about -->
-<section class="about py-md-5 py-5" id="about">
-@*     <div class="container py-md-5">
-        <div class="feature-grids row mt-3">
-            @foreach (var SV in Model.Our_Sevices)
-            {
-                <div class="col-lg-4 gd-bottom mt-4">
-                    <div class="bottom-gd p-lg-5 p-4">
-                        <img src="@SV.Image" alt="@SV.Title" class="service-icon" style="height: 200px;">
-                        <h3 class="my-3">@SV.Title</h3>
-                        <p>@SV.Description</p>
-                    </div>
-                </div>
-            }
-
-        </div>
-    </div> *@
+@* <section class="about py-md-5 py-5" id="about">
     <div class="container py-md-5">
         <div class="feature-grids row mt-3">
             @foreach (var SV in Model.Our_Sevices)
@@ -150,10 +79,45 @@
             }
         </div>
     </div>
-
-
+</section> *@
+@* <section class="about py-md-5 py-5" id="about">
+    <div class="container py-md-5">
+        <div class="feature-grids row mt-3">
+            @foreach (var SV in Model.Our_Sevices)
+            {
+                <div class="col-lg-4 gd-bottom mt-4">
+                    <div class="bottom-gd text-center">
+                        <!-- Set the max-height for the image -->
+                        <img src="@SV.Image" alt="@SV.Title" class="service-icon mx-auto d-block" style="max-height: 212px; width: 75%; height: 100%;">
+                        <h3 class="my-3">@SV.Title</h3>
+                        <p>@SV.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section> *@
+<section class="about py-md-5 py-5" id="about">
+    <div class="container py-md-5">
+        <div class="feature-grids row mt-3">
+            @foreach (var SV in Model.Our_Sevices)
+            {
+                <div class="col-lg-4 gd-bottom mt-4">
+                    <div class="bottom-gd p-lg-5 p-4 text-center">
+                        <!-- Set the max-height for the image -->
+                        <img src="@SV.Image" alt="@SV.Title" class="service-icon mx-auto d-block" style="max-height: 212px; width: 100%; height: 100%;">
+                        <h3 class="my-3">@SV.Title</h3>
+                        <p>@SV.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </section>
 <!-- //about -->
+
+
+
 <!--/banner-bottom -->
 <section class="collections-gid-w3layouts" id="skills">
     <div class="container-fluid">
@@ -174,52 +138,6 @@
                 </div>
 
             }
-
-@*             <div class="col-lg-6 progress-content-img px-lg-0">
-                <img src="images/img1.jpg" alt="" class="img-fluid image1">
-            </div>
-            <div class="col-lg-6 progress-content text-left p-lg-5 my-lg-5">
-                <div class="py-lg-3 px-lg-5 p-md-5 p-3">
-                    <h3 class="title-w3pvt mb-5">Our Skills</h3>
-
-                    <p>
-                        We provide skilled project managers, network engineers, cyber security analysts and developer.
-                        We enable the design, architecture, implementation, support, and delivery of your complex technical solutions.
-                    </p>
-                    <div class="progress-w3pvt mt-5">
-                        <div class="progress-one">
-                            <h4 class="progress-wthree">Design</h4>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="progress-one my-lg-4">
-                            <h4 class="progress-wthree">Architecture</h4>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="progress-one">
-                            <h4 class="progress-wthree">Implementation</h4>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="progress-one my-lg-4">
-                            <h4 class="progress-wthree">Support</h4>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="progress-one">
-                            <h4 class="progress-wthree">Delivery</h4>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> *@
         </div>
     </div>
 </section>
@@ -298,7 +216,7 @@
 </section>
 <!-- /banner-bottom -->
 <!-- /features -->
-<section class="about py-md-5 py-5" id="services">
+@* <section class="about py-md-5 py-5" id="services">
     <div class="container py-md-5">
         <h3 class="title-w3pvt text-center mb-5">Our Features</h3>
         <div id="featureCarousel" class="carousel slide" data-ride="carousel">
@@ -315,14 +233,13 @@
                                 @for (int cardIndex = slideIndex * 3; cardIndex < (slideIndex + 1) * 3 && cardIndex < features.Count; cardIndex++)
                                 {
                                     var feature = features[cardIndex];
-                                    <div class="col-md-4 gd-bottom text-center p-lg-5" style="padding: 1rem !important;">
+                                    <div class="col-md-4 text-center">
                                         <div class="card">
-                                            <img src="@feature.Image" class="card-img-top" alt="Feature Image" style="max-height: 200px;">
+                                            <img src="@feature.Image" class="card-img-top" alt="Feature Image" style="max-height: 200px; width: 100%; height: 100% ">
                                             <div class="card-body">
                                                 <h3 class="card-title">@feature.Title</h3>
                                                 <p class="card-text">@feature.Short_Description</p>
-                                                 <a href="@Url.Action("Services", "Home", new { image = feature.Image, title = feature.Title, description = feature.Long_Description })" class="btn btn-primary">Learn More</a>
-
+                                                <a href="@Url.Action("Services", "Home", new { image = feature.Image, title = feature.Title, description = feature.Long_Description })" class="btn btn-primary">Learn More</a>
                                             </div>
                                         </div>
                                     </div>
@@ -331,21 +248,65 @@
                         </div>
                     }
                 }
-                @* <a asp-area="" asp-controller="Home" asp-action="Services" class="btn btn-primary">Learn More</a> *@
-@*                 <a href="@Url.Action("Services", "Home", new { image = feature.Image, title = feature.Title, description = feature.Long_Description })" class="btn btn-primary">Learn More</a>
- *@
             </div>
-            <a class="carousel-control-prev" href="#featureCarousel" role="button" data-slide="prev" style="left:-110px">
+            <a class="carousel-control-prev" href="#featureCarousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#featureCarousel" role="button" data-slide="next" style="right:-110px">
+            <a class="carousel-control-next" href="#featureCarousel" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
         </div>
     </div>
-</section>
+</section> *@
+ <section class="about py-md-5 py-5" id="services">
+    <div class="container py-md-5">
+        <h3 class="title-w3pvt text-center mb-5">Our Features</h3>
+        <div id="featureCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @{
+                    var features = Model.Our_Features.ToList();
+                    int totalSlides = (int)Math.Ceiling((double)features.Count / 3);
+
+                    for (int slideIndex = 0; slideIndex < totalSlides; slideIndex++)
+                    {
+                        bool isActive = slideIndex == 0;
+                        <div class="carousel-item @(isActive ? "active" : "")">
+                            <div class="feature-grids row mt-5">
+                                @for (int cardIndex = slideIndex * 3; cardIndex < (slideIndex + 1) * 3 && cardIndex < features.Count; cardIndex++)
+                                {
+                                    var feature = features[cardIndex];
+                                    <div class="col-md-4 text-center" style="padding: 1rem;">
+                                        <div class="card">
+                                            <img src="@feature.Image" class="card-img-top img-fluid" alt="Feature Image">
+                                            <div class="card-body">
+                                                <h3 class="card-title">@feature.Title</h3>
+                                                <p class="card-text">@feature.Short_Description</p>
+                                                <a href="@Url.Action("Services", "Home", new { image = feature.Image, title = feature.Title, description = feature.Long_Description })" class="btn btn-primary">Learn More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            <a class="carousel-control-prev" href="#featureCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#featureCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</section> 
+
+
+
 
 @* <section class="about py-md-5 py-5" id="services">
     <div class="container py-md-5">
@@ -556,7 +517,7 @@
 
 
 <!-- Industries Carousel -->
-<section class="partners py-5" id="partners">
+@* <section class="partners py-5" id="partners">
     <div class="container py-md-3">
         <h3 class="title-w3pvt two text-center mb-5">Industries</h3>
 
@@ -600,7 +561,53 @@
             </a>
         </div>
     </div>
+</section> *@
+<section class="partners py-5" id="partners">
+    <div class="container py-md-3">
+        <h3 class="title-w3pvt two text-center mb-5">Industries</h3>
+
+        <div id="industriesCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @{
+                    var industries = Model.Our_Industries.ToList();
+                    int total = (int)Math.Ceiling((double)industries.Count / 2);
+
+                    for (int slideIndex = 0; slideIndex < total; slideIndex++)
+                    {
+                        bool isActive = slideIndex == 0;
+                        <div class="carousel-item @(isActive ? "active" : "")">
+                            <div class="row grid-part text-center">
+                                @for (int itemIndex = slideIndex * 2; itemIndex < (slideIndex + 1) * 2 && itemIndex < industries.Count; itemIndex++)
+                                {
+                                    var industry = industries[itemIndex];
+                                    <div class="col-md-6 mt-3">
+                                        <div class="partner-w3pvt" style="padding: 1rem;">
+                                            <a href="#">
+                                                <img src="@industry.Indutry_Icon" alt="@industry.Industry_Title" class="industry-icon" style="height: auto; width: 100%;">
+                                            </a>
+                                            <h4>@industry.Industry_Title</h4>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+
+            <!-- Carousel Navigation Arrows -->
+            <a class="carousel-control-prev" href="#industriesCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#industriesCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
 </section>
+
 
 <!-- //Industries Carousel -->
 

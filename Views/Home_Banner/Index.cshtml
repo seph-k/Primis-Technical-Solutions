@@ -38,13 +38,13 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Title)
+                        @Html.Raw(item.Title)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Description)
+                        @Html.Raw(item.Description)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Image)
+                        @Html.Raw(item.Image)
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Home_BannerId">Edit</a> |
