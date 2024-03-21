@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +14,12 @@ namespace Primis_Technical_Solutions.Controllers
     public class Introductory_ContentController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment; // Add this line
 
-        public Introductory_ContentController(ApplicationDbContext context)
+        public Introductory_ContentController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Introductory_Content
@@ -56,13 +59,36 @@ namespace Primis_Technical_Solutions.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Introductory_ContentId,Home_Title,Home_Description,About_Title,About_Description,Contact_Title,Contact_Description")] Introductory_Content introductory_Content)
+        public async Task<IActionResult> Create([Bind("Introductory_ContentId,Home_Title,Home_Description,About_Title,About_Description,Contact_Title,Contact_Description,IntroVideo")] Introductory_Content introductory_Content, IFormFile IntroVideo)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(introductory_Content);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                // Check if an image was uploaded
+                if (IntroVideo != null && IntroVideo.Length > 0)
+                {
+                    // Generate a unique file name for the image (you can customize this logic)
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + IntroVideo.FileName;
+
+                    // Define the path to save the image in the wwwroot/uploads folder
+                    string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    // Create the uploads folder if it doesn't exist
+                    Directory.CreateDirectory(uploadsFolder);
+
+                    // Save the uploaded image to the file system
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await IntroVideo.CopyToAsync(stream);
+                    }
+
+                    // Save the image file path to the database
+                    introductory_Content.IntroVideo = "/uploads/" + uniqueFileName; // Relative path to the image
+
+                    _context.Add(introductory_Content);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
             return View(introductory_Content);
         }
@@ -88,7 +114,7 @@ namespace Primis_Technical_Solutions.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Introductory_ContentId,Home_Title,Home_Description,About_Title,About_Description,Contact_Title,Contact_Description")] Introductory_Content introductory_Content)
+        public async Task<IActionResult> Edit(int id, [Bind("Introductory_ContentId,Home_Title,Home_Description,About_Title,About_Description,Contact_Title,Contact_Description,IntroVideo")] Introductory_Content introductory_Content,IFormFile IntroVideo)
         {
             if (id != introductory_Content.Introductory_ContentId)
             {
@@ -99,8 +125,34 @@ namespace Primis_Technical_Solutions.Controllers
             {
                 try
                 {
-                    _context.Update(introductory_Content);
-                    await _context.SaveChangesAsync();
+                    // Check if an image was uploaded
+                    if (IntroVideo != null && IntroVideo.Length > 0)
+                    {
+                        // Generate a unique file name for the image (you can customize this logic)
+                        string uniqueFileName = Guid.NewGuid().ToString() + "_" + IntroVideo.FileName;
+
+                        // Define the path to save the image in the wwwroot/uploads folder
+                        string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
+                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                        // Create the uploads folder if it doesn't exist
+                        Directory.CreateDirectory(uploadsFolder);
+
+                        // Save the uploaded image to the file system
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await IntroVideo.CopyToAsync(stream);
+                        }
+
+                        // Save the image file path to the database
+                        introductory_Content.IntroVideo = "/uploads/" + uniqueFileName; // Relative path to the image
+
+                        _context.Update(introductory_Content);
+                        await _context.SaveChangesAsync();
+                    }
+
+                    //_context.Update(introductory_Content);
+                    //await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {

@@ -19,9 +19,20 @@
                         <div class="overlay">
                             <div class="container">
                                 <div class="banner-info">
-                                    <div class="banner-w3layouts-inner text-center">
+                                    @* <div class="banner-w3layouts-inner text-center">
                                         <p style="font-size: 2vw;">@Html.Raw(HB.Description)</p>
+                                        <p style="font-size: 2vw;">@Html.Raw(HB.mobileDescription)</p>
                                         <h2 style="font-size: 3vw;">@Html.Raw(HB.Title)</h2>
+                                        <h2 style="font-size: 3vw;">@Html.Raw(HB.mobileTitle)</h2>
+                                    </div> *@
+                                    <div id="mobileContent" style="display: block; margin-top: 65px;">
+
+                                        @Html.Raw(HB.mobileDescription)
+                                        @Html.Raw(HB.mobileTitle)
+                                    </div>
+                                    <div id="desktopContent">
+                                        @Html.Raw(HB.Description)
+                                        @Html.Raw(HB.Title)
                                     </div>
                                 </div>
                             </div>
@@ -42,6 +53,29 @@
             </div>
         }
     </div>
+
+    <script>
+        // JavaScript to detect device width and toggle visibility of content
+        function adjustContentVisibility() {
+            var deviceWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var desktopContent = document.getElementById("desktopContent");
+            var mobileContent = document.getElementById("mobileContent");
+
+            if (deviceWidth <= 425) {
+                desktopContent.style.display = "none";
+                mobileContent.style.display = "block";
+            } else {
+                desktopContent.style.display = "block";
+                mobileContent.style.display = "none";
+            }
+        }
+
+        // Initial adjustment on page load
+        adjustContentVisibility();
+
+        // Adjust content visibility on window resize
+        window.addEventListener("resize", adjustContentVisibility);
+    </script>
 </section>
 
 <!-- //banner -->
@@ -53,13 +87,38 @@
             @foreach (var IC in Model.Introductory_Contents)
             {
                 <div class="title-desc text-center px-lg-5">
-                    <p class="px-lg-5 sub-wthree">@IC.Home_Description
-                    </p>
-                    <a class="btn mt-lg-4 mt-3 read" href="single.html" role="button"><span class="fa fa-play" aria-hidden="true"></span></a>
+                    <p class="px-lg-5 sub-wthree">@IC.Home_Description</p>
+                    <!-- Button to trigger modal -->
+                    <button class="btn mt-lg-4 mt-3 read" data-toggle="modal" data-target="#videoModal" data-src="@IC.IntroVideo"><span class="fa fa-play" aria-hidden="true"></span></button>
                 </div>
-
             }
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <!-- Embed video here -->
+                        <iframe id="videoIframe" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Script to control modal behavior
+            $('#videoModal').on('show.bs.modal', function (e) {
+                var btn = $(e.relatedTarget);
+                var videoSrc = btn.data('src');
+                $('#videoIframe').attr('src', videoSrc);
+            });
+
+            $('#videoModal').on('hidden.bs.modal', function (e) {
+                $('#videoIframe').attr('src', '');
+            });
+        </script>
+
     </div>
 </section>
 <!-- //banner-botttom -->

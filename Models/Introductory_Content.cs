@@ -10,5 +10,6 @@
         public string About_Description { get; set; }
         public string Contact_Title { get; set; }
         public string Contact_Description { get; set; }
+        public string? IntroVideo { get; set; }
     }
 }
