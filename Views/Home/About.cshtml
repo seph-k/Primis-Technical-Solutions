@@ -180,62 +180,58 @@
 </section>
 <!-- //features -->
 <!--/gallery -->
-<section class="gallery py-5">
-    <div class="container py-md-5">
-
-        <h3 class="title-w3pvt text-center mb-5">Our Team</h3>
-        <div class="feature-grids team row mt-3">
-
-            @{
-                int counter = 1;
-            }
-
-            @foreach (var TM in Model.Team_Members)
-            {
-                <div class="col-lg-4 gd-bottom team-wthree-gd mt-4">
-                    <div class="bottom-gd p-lg-5 p-4">
-                        <img src="@TM.Image" alt="" class="img-fluid image1">
-                        <h3 class="my-3">
-                            @TM.Name
-                        </h3>
-                        <p>@TM.Position</p>
-                        <ul class="banner-w3layouts-top-icons mt-3">
-
-                            <li class="icons mx-auto">
-                                <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                            </li>
-
-                            <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
-                            <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
-
-                        </ul>
-                    </div>
+@{
+    if (Model.Team_Members.Any())
+    {
+        <section class="gallery py-5">
+            <div class="container py-md-5">
+                <h3 class="title-w3pvt text-center mb-5">Our Team</h3>
+                <div class="feature-grids team row mt-3">
+                    @foreach (var TM in Model.Team_Members)
+                    {
+                        <div class="col-lg-4 gd-bottom team-wthree-gd mt-4">
+                            <div class="bottom-gd p-lg-5 p-4">
+                                <img src="@TM.Image" alt="" class="img-fluid image1">
+                                <h3 class="my-3">@TM.Name</h3>
+                                <p>@TM.Position</p>
+                                <ul class="banner-w3layouts-top-icons mt-3">
+                                    <li class="icons mx-auto">
+                                        <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+                                    </li>
+                                    <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
+                                    <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
                 </div>
-                counter++;
-            }
+            </div>
+        </section>
+    }
+}
 
-        </div>
-    </div>
-
-
-</section>
 <!-- //gallery-->
 <!-- partners -->
-<section class="partners py-5" id="partners">
-    <div class="container py-md-3">
-        <h3 class="title-w3pvt two text-center mb-5">Our Partners</h3>
-        <div class="row grid-part text-center">
-            @foreach (var PT in Model.Partners_Sections)
-            {
-                <div class="col-md-2 col-4 mt-3">
-                    <div class="partner-w3pvt">
-                        <a href="#"><img src="@PT.Partner_Icon" alt="Partner Image" style="height: 125px;"></a>
-                        <h4>@PT.Partner_Title</h4>
-                    </div>
+@{
+    if (Model.Partners_Sections.Any())
+    {
+        <section class="partners py-5" id="partners">
+            <div class="container py-md-3">
+                <h3 class="title-w3pvt two text-center mb-5">Our Partners</h3>
+                <div class="row grid-part text-center">
+                    @foreach (var PT in Model.Partners_Sections)
+                    {
+                        <div class="col-md-2 col-4 mt-3">
+                            <div class="partner-w3pvt">
+                                <a href="#"><img src="@PT.Partner_Icon" alt="Partner Image" style="height: 125px;"></a>
+                                <h4>@PT.Partner_Title</h4>
+                            </div>
+                        </div>
+                    }
                 </div>
-            }
+            </div>
+        </section>
+    }
+}
 
-        </div>
-    </div>
-</section>
 <!-- //partners -->
