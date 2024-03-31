@@ -141,7 +141,7 @@ a.navbar-brand.logo span {}
     }
 
 /* CSS for responsive content */
-.responsive-content {
+/*.responsive-content {
     display: block;
     width: 100%;
     max-width: 100%;
@@ -149,27 +149,27 @@ a.navbar-brand.logo span {}
 
 
 .banner-w3layouts-inner {
-    text-align: center;
+    text-align: center;*/
     /* background: #fff; */
-    padding: 2em;
+    /*padding: 2em;*/
     /* width: 50%; */
-    margin: 0 auto;
-}
+    /*margin: 0 auto;
+}*/
 
 
 /* Media query for small devices */
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {
     .banner-w3layouts-inner {
-        padding: 10%; /* Increase padding for smaller devices */
-    }
-}
+        padding: 10%;*/ /* Increase padding for smaller devices */
+    /*}
+}*/
 
 /* Media query for extra small devices */
-@media screen and (max-width: 576px) {
+/*@media screen and (max-width: 576px) {
     .banner-w3layouts-inner {
-        padding: 15%; /* Increase padding further for extra small devices */
-    }
-}
+        padding: 15%;*/ /* Increase padding further for extra small devices */
+    /*}
+}*/
 
 
 .banner-info h3 {
