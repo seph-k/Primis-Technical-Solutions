@@ -59,7 +59,7 @@ namespace Primis_Technical_Solutions.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Home_BannerId,Title,Description,Image")] Home_Banner home_Banner, IFormFile Image)
+        public async Task<IActionResult> Create([Bind("Home_BannerId,Title,Description,Image,mobileTitle,mobileDescription")] Home_Banner home_Banner, IFormFile Image)
         {
 
             if (ModelState.IsValid)
@@ -85,7 +85,7 @@ namespace Primis_Technical_Solutions.Controllers
 
                     // Save the image file path to the database
                     home_Banner.Image = "/uploads/" + uniqueFileName; // Relative path to the image
-
+                    
                     _context.Add(home_Banner);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
@@ -115,7 +115,7 @@ namespace Primis_Technical_Solutions.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Home_BannerId,Title,Description,Image")] Home_Banner home_Banner, IFormFile Image)
+        public async Task<IActionResult> Edit(int id, [Bind("Home_BannerId,Title,Description,Image,mobileTitle,mobileDescription")] Home_Banner home_Banner, IFormFile Image)
         {
             if (id != home_Banner.Home_BannerId)
             {

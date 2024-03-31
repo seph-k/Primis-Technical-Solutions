@@ -38,6 +38,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Contact_Description)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntroVideo)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -61,6 +64,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Contact_Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntroVideo)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Introductory_ContentId">Edit</a> |

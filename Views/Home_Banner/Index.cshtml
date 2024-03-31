@@ -25,7 +25,13 @@
                     @Html.DisplayNameFor(model => model.Title)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.mobileTitle)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.mobileDescription)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Image)
@@ -41,7 +47,13 @@
                         @Html.Raw(item.Title)
                     </td>
                     <td>
+                        @Html.Raw(item.mobileTitle)
+                    </td>
+                    <td>
                         @Html.Raw(item.Description)
+                    </td>
+                    <td>
+                        @Html.Raw(item.mobileDescription)
                     </td>
                     <td>
                         @Html.Raw(item.Image)

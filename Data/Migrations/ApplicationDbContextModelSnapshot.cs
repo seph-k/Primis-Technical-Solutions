@@ -327,6 +327,13 @@ namespace Primis_Technical_Solutions.Data.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("mobileDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("mobileTitle")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Home_BannerId");
 
                     b.ToTable("Home_Banners");
@@ -362,6 +369,9 @@ namespace Primis_Technical_Solutions.Data.Migrations
 
                     b.Property<string>("Home_Title")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IntroVideo")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Introductory_ContentId");
